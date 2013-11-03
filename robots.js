@@ -1,20 +1,28 @@
+var Position = require("./position.js");
+
 function Robot() {
 	var orientation = "N";
+	var position = new Position();
 
 	this.move = function (direction) {
 		if (direction == "L")
-			orientation = "W";
+			position.orientation = "W";
 		else if (direction == "R")
-			orientation = "E";
-	};
-
-	this.getOrientation = function () {
-		return orientation;
+			position.orientation = "E";
 	};
 
 	this.getPosition = function () {
-		return { x: 0, y: 0 };
+		return position;
 	};
+
+	this.setPosition = function (gridPosition) {
+		var instructions = gridPosition.split(" ");
+		var orientation = instructions[2] == undefined ? "N" : instructions[2];
+
+		position.x = instructions[0];
+		position.y = instructions[1];
+		position.orientation = orientation;
+	}
 };
 
 module.exports = Robot;
