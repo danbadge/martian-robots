@@ -1,12 +1,20 @@
-var orientation;
+function Robot() {
+	var orientation;
 
-exports.move = function (direction) {
-	if (direction == "L")
-		orientation = "W";
-	else if (direction == "R")
-		orientation = "E";
+	this.move = function (direction) {
+		if (direction == "L")
+			orientation = "W";
+		else if (direction == "R")
+			orientation = "E";
+	};
+
+	this.getOrientation = function () {
+		return orientation;
+	};
+
+	this.getPosition = function () {
+		return { x: 0, y: 0 };
+	};
 };
 
-exports.getOrientation = function () {
-	return orientation;
-};
+module.exports = Robot;
