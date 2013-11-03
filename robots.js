@@ -1,5 +1,5 @@
 function Robot() {
-	var orientation;
+	var orientation = "N";
 
 	this.move = function (direction) {
 		if (direction == "L")

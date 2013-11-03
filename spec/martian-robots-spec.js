@@ -1,7 +1,12 @@
 var Robot = require("../robots.js");
 
-describe("robot movement", function () {
-	it("should start in the top left corner of 'Mars'", function () {
+describe("robot", function () {
+	it("should land on Mars facing North", function () {
+		var robot = new Robot();
+		var orientation = robot.getOrientation();
+		expect(orientation).toBe("N");
+	});
+	it("should land in the bottom left corner of Mars", function () {
 		var robot = new Robot();
 		var position = robot.getPosition();
 		expect(position.x).toBe(0);
