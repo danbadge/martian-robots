@@ -51,12 +51,16 @@ function Robot() {
 	};
 
 	turnLeft = function() {
-		position.orientation = west;
+		var next = direction.indexOf(position.orientation) - 1;
+		if (next < 0)
+			position.orientation = direction[direction.length - 1];
+		else 
+			position.orientation = direction[next];
 	};
 
 	turnRight = function () {
 		var next = direction.indexOf(position.orientation) + 1;
-		if (direction[next] == undefined)
+		if (next >= direction.length)
 			position.orientation = direction[0];
 		else 
 			position.orientation = direction[next];

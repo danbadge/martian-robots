@@ -18,6 +18,27 @@ describe("robot", function () {
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("W");
 	});
+	it("should turn left to face south if it was facing west", function() {
+		var robot = new Robot();
+		robot.setPosition("1 1 W")
+		robot.move("L");
+		var orientation = robot.getPosition().orientation;
+		expect(orientation).toBe("S");
+	});
+	it("should turn right to face west if it was facing south", function() {
+		var robot = new Robot();
+		robot.setPosition("1 1 S")
+		robot.move("L");
+		var orientation = robot.getPosition().orientation;
+		expect(orientation).toBe("E");
+	});
+	it("should turn right to face north if it was facing east", function() {
+		var robot = new Robot();
+		robot.setPosition("1 1 E")
+		robot.move("L");
+		var orientation = robot.getPosition().orientation;
+		expect(orientation).toBe("N");
+	});	
 	it("should turn 90 degrees right", function() {
 		var robot = new Robot();
 		robot.move("R");
