@@ -1,0 +1,3 @@
+npm install jasmine-node -g
+
+So you can run jasmine-node globally
