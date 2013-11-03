@@ -6,4 +6,9 @@ describe("robot movement", function () {
 		var orientation = robot.getOrientation();
 		expect(orientation).toBe("W");
 	});
+	it("should turn 90 degrees right", function() {
+		robot.move("R");
+		var orientation = robot.getOrientation();
+		expect(orientation).toBe("E");
+	});
 });
