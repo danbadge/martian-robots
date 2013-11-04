@@ -1,6 +1,6 @@
 var Robot = require("../robots.js");
 
-describe("robot", function () {
+describe("Given a new Robot", function () {
 	it("should land on Mars facing North", function () {
 		var robot = new Robot();
 		var orientation = robot.getPosition().orientation;
