@@ -4,11 +4,11 @@ var north = "N";
 var east = "E";
 var south = "S";
 var west = "W";
-var direction = [ north, east, south, west ];
 
 function Robot() {
-	var orientation = north;
 	var position = new Position();
+	var right = { "N":"E", "E":"S", "S":"W", "W":"N" };
+	var left = { "N":"W", "W":"S", "S":"E", "E":"N" };
 
 	this.move = function (instruction) {
 		if (isLeftTurn(instruction)){
@@ -50,20 +50,12 @@ function Robot() {
 		}	
 	};
 
-	turnLeft = function() {
-		var next = direction.indexOf(position.orientation) - 1;
-		if (next < 0)
-			position.orientation = direction[direction.length - 1];
-		else 
-			position.orientation = direction[next];
+	this.turnLeft = function() {
+		position.orientation = left[position.orientation];
 	};
 
-	turnRight = function () {
-		var next = direction.indexOf(position.orientation) + 1;
-		if (next >= direction.length)
-			position.orientation = direction[0];
-		else 
-			position.orientation = direction[next];
+	this.turnRight = function () {
+		position.orientation = right[position.orientation];
 	};
 
 	isLeftTurn = function (instruction) {

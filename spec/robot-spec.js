@@ -1,68 +1,54 @@
 var Robot = require("../robots.js");
 
-describe("Given a new Robot", function () {
-	it("should land on Mars facing North", function () {
-		var robot = new Robot();
+describe("Given a new Robot is created", function () {
+	var robot = new Robot();
+
+	it("then it lands on Mars facing North", function () {
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("N");
 	});
-	it("should land in the bottom left corner of Mars", function () {
-		var robot = new Robot();
+	it("then it lands on Mars in the bottom left corner", function () {
 		var position = robot.getPosition();
 		expect(position.x).toBe(0);
 		expect(position.y).toBe(0);
 	});
-	it("should turn 90 degrees left", function() {
-		var robot = new Robot();
-		robot.move("L");
+	it("then it can turn left to face West", function() {
+		robot.turnLeft()
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("W");
 	});
-	it("should turn left to face south if it was facing west", function() {
-		var robot = new Robot();
-		robot.setPosition("1 1 W")
-		robot.move("L");
+	it("then it can turn left again to face South", function() {
+		robot.turnLeft()
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("S");
 	});
-	it("should turn right to face west if it was facing south", function() {
-		var robot = new Robot();
-		robot.setPosition("1 1 S")
-		robot.move("L");
+	it("then it can turn left again to face East", function() {
+		robot.turnLeft()
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("E");
-	});
-	it("should turn right to face north if it was facing east", function() {
-		var robot = new Robot();
-		robot.setPosition("1 1 E")
-		robot.move("L");
+	});	
+	it("then it can turn left again to face North", function() {
+		robot.turnLeft()
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("N");
-	});	
-	it("should turn 90 degrees right", function() {
-		var robot = new Robot();
-		robot.move("R");
+	});		
+	it("then it can turn right", function() {
+		robot.turnRight();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("E");
 	});
-	it("should turn right to face south if it was facing east", function() {
-		var robot = new Robot();
-		robot.setPosition("1 1 E")
-		robot.move("R");
+	it("then it can turn right again to face South", function() {
+		robot.turnRight();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("S");
 	});
-	it("should turn right to face west if it was facing south", function() {
-		var robot = new Robot();
-		robot.setPosition("1 1 S")
-		robot.move("R");
+	it("then it can turn right again to face West", function() {
+		robot.turnRight();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("W");
-	});
-	it("should turn right to face north if it was facing west", function() {
-		var robot = new Robot();
-		robot.setPosition("1 1 W")
-		robot.move("R");
+	});	
+	it("then it can turn right again to face North", function() {
+		robot.turnRight();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("N");
 	});	
