@@ -10,32 +10,11 @@ function Robot() {
 	var right = { "N":"E", "E":"S", "S":"W", "W":"N" };
 	var left = { "N":"W", "W":"S", "S":"E", "E":"N" };
 
-	this.move = function (instruction) {
-		if (isLeftTurn(instruction)){
-			turnLeft();
-		} 
-		else if (isRightTurn(instruction)) {
-			turnRight();
-		}
-		else if (isForwardMovement(instruction)) {
-			moveForwards();
-		}
-	};
-
 	this.getPosition = function () {
 		return position;
 	};
 
-	this.setPosition = function (instructions) {
-		var instructions = instructions.split(" ");
-		var orientation = instructions[2] == undefined ? north : instructions[2];
-
-		position.x = parseInt(instructions[0]);
-		position.y = parseInt(instructions[1]);
-		position.orientation = orientation;
-	};
-
-	moveForwards = function () {
+	this.moveForwards = function () {
 		if (position.orientation == north) {
 			position.y += 1;
 		} 
