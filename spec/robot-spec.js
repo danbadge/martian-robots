@@ -80,6 +80,11 @@ describe("Given a new Robot is created", function () {
 		var positionOutput = robot.getPosition().toString();
 		expect(positionOutput).toBe("0 0 W");
 	});
+	it("then it can respond to multiple instructions", function () {
+		var robot1 = new Robot(grid);
+		var position = robot1.move("LRRLRF");
+		expect(position).toBe("1 0 E");
+	});
 });
 
 describe("Given a Grid of 4x4 and a Robot with a position of 3,2 East", function () {

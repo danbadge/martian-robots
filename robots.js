@@ -22,6 +22,22 @@ function Robot(grid) {
 		return position;
 	};
 
+	this.move = function (instructions) {
+		for (var i = 0; i < instructions.length; i++) {
+			if (this.isLost()) return;
+
+			var instruction = instructions.charAt(i);
+
+			if (isLeftTurn(instruction)) 
+				this.turnLeft();
+			if (isRightTurn(instruction)) 
+				this.turnRight();
+			if (isForwardMovement(instruction)) 
+				this.moveForwards();
+		}
+		return position.toString();
+	};
+
 	this.moveForwards = function () {
 		var startPosition = position.toString();
 
@@ -42,7 +58,6 @@ function Robot(grid) {
 		}
 
 		if (position.isOffThe(grid)) {
-			position.lost = true;
 			grid.addForbidden(startPosition);
 		} 
 	};
