@@ -2,7 +2,7 @@ var Robot = require("../robots.js");
 var Grid = require("../grid.js");
 
 describe("Given a new Robot is created", function () {
-	var grid = new Grid();
+	var grid = new Grid(1,1);
 	var robot = new Robot(grid);
 
 	it("then it lands on Mars facing North", function () {
@@ -88,7 +88,7 @@ describe("Given a new Robot is created", function () {
 });
 
 describe("Given a Grid of 4x4 and a Robot with a position of 3,2 East", function () {
-	var grid = new Grid(4, 4)
+	var grid = new Grid(3, 3)
 	var robot = new Robot(grid);
 	robot.setPosition("3 2 E");
 	it("then it is facing East", function() {
@@ -102,7 +102,7 @@ describe("Given a Grid of 4x4 and a Robot with a position of 3,2 East", function
 });
 
 describe("Given a Grid of 1x1 and two robots", function () {
-	var grid = new Grid(1, 1);
+	var grid = new Grid();
 	var robot1 = new Robot(grid);
 	var robot2 = new Robot(grid);
 
@@ -112,14 +112,14 @@ describe("Given a Grid of 1x1 and two robots", function () {
 
 		var positionOutput = robot1.getPosition().toString();
 		expect(robot1.isLost()).toBeTruthy();
-		expect(positionOutput).toBe("0 2 N LOST");
+		expect(positionOutput).toBe("0 0 N LOST");
 	});
 	it("then robot 1 can no longer move around", function () {
 		robot1.moveForwards();
 		robot1.moveForwards();
 
 		var positionOutput = robot1.getPosition().toString();
-		expect(positionOutput).toBe("0 2 N LOST");
+		expect(positionOutput).toBe("0 0 N LOST");
 	});
 	it("when robot 2 tries get lost in the same place it is not lost", function () {
 		robot2.moveForwards();
@@ -132,6 +132,6 @@ describe("Given a Grid of 1x1 and two robots", function () {
 		robot2.moveForwards();
 
 		var positionOutput = robot2.getPosition().toString();
-		expect(positionOutput).toBe("0 1 N");
+		expect(positionOutput).toBe("0 0 N");
 	});
 });

@@ -1,8 +1,8 @@
 function Grid(length, height) {
 	var forbidden = new Array();
 
-	this.length = (length == undefined ? 1 : length);
-	this.height = (height == undefined ? 1 : height);
+	this.length = (length == undefined ? 0 : length);
+	this.height = (height == undefined ? 0 : height);
 
 	this.addForbidden = function (position) {
 		forbidden.push(position);
