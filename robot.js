@@ -4,7 +4,7 @@ var north = "N";
 var east = "E";
 var south = "S";
 var west = "W";
-var forbidden = new Array();
+var forbidden = [];
 
 function Robot(grid) {
 	var position = new Position();
@@ -44,22 +44,10 @@ function Robot(grid) {
 		if (this.isLost() || grid.isForbidden(startPosition))
 			return;
 
-		if (position.orientation == north) {
-			position.y++;
-		} 
-		else if (position.orientation == east) {
-			position.x++;
-		}
-		else if (position.orientation == south) {
-			position.y--;
-		}
-		else if (position.orientation == west) {
-			position.x--;
-		}
+		position.moveForwards();
 
-		if (position.isOffThe(grid)) {
+		if (position.isOffThe(grid))
 			grid.addForbidden(startPosition);
-		} 
 	};
 
 	this.turnLeft = function() {
@@ -84,7 +72,7 @@ function Robot(grid) {
 
 	this.isLost = function () {
 		return position.lost;
-	}
-};
+	};
+}
 
 module.exports = Robot;

@@ -1,4 +1,4 @@
-var Robot = require("../robots.js");
+var Robot = require("../robot.js");
 var Grid = require("../grid.js");
 
 describe("Given a new Robot is created", function () {
@@ -16,7 +16,7 @@ describe("Given a new Robot is created", function () {
 	});
 	it("then it lands on Mars it is not lost", function () {
 		expect(robot.isLost()).toBeFalsy();
-	});	
+	});
 	it("then it can turn left to face West", function() {
 		robot.turnLeft()
 		var orientation = robot.getPosition().orientation;

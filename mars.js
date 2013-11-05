@@ -1,22 +1,29 @@
 var Grid = require("./grid.js");
-var Robot = require("./robots.js");
+var Robot = require("./robot.js");
 
-var commands = "5 3\n1 1 E\nRFRFRFRF\n\n3 2 N\nFRRFLLFFRRFLL\n\n0 3 W\nLLFFFLFLFL";
+var instrucions = "5 3\n1 1 E\nRFRFRFRF\n\n3 2 N\nFRRFLLFFRRFLL\n\n0 3 W\nLLFFFLFLFL";
 
-commands = commands.split("\n");
+instrucions = instrucions.split("\n");
 
-var gridSize = commands[0].split(" ")
+var gridSize = instrucions[0].split(" ")
 var grid = new Grid(gridSize[0], gridSize[1]);
 var robot = new Robot(grid);
 
-for (var i = 1; i < commands.length; i++) {
-	if (commands[i] == "") {
+for (var i = 1; i < instrucions.length; i++) {
+	var instruction = instrucions[i];
+
+	if (isNewRobot(instruction)) 
 		robot = new Robot(grid);
-	} 
-	else if (commands[i].indexOf(" ") > -1) {
-		robot.setPosition(commands[i]);
-	} 
-	else {
-		console.log(robot.move(commands[i]));
-	}
+	else if (isRobotsStartingPosition(instruction))
+		robot.setPosition(instruction);
+	else
+		console.log(robot.move(instruction));
+}
+
+function isNewRobot(instruction) {
+	return instruction == "";
+};
+
+function isRobotsStartingPosition(instruction) {
+	return instruction.indexOf(" ") > -1;
 }
