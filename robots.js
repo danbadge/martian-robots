@@ -13,8 +13,8 @@ function Robot(grid) {
 
 	this.setPosition = function (command) {
 		command = command.split(" ");
-		position.x = command[0];
-		position.y = command[1];
+		position.x = parseInt(command[0]);
+		position.y = parseInt(command[1]);
 		position.orientation = command[2];
 	};
 
@@ -24,7 +24,7 @@ function Robot(grid) {
 
 	this.move = function (instructions) {
 		for (var i = 0; i < instructions.length; i++) {
-			if (this.isLost()) return;
+			if (this.isLost()) break;
 
 			var instruction = instructions.charAt(i);
 

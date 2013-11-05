@@ -108,17 +108,21 @@ describe("Given a Grid of 1x1 and two robots", function () {
 
 	it("when robot 1 falls of the grid it is lost", function () {
 		robot1.moveForwards();
+		robot1.moveForwards();
 
 		var positionOutput = robot1.getPosition().toString();
 		expect(robot1.isLost()).toBeTruthy();
-		expect(positionOutput).toBe("0 1 N LOST");
+		expect(positionOutput).toBe("0 2 N LOST");
 	});
 	it("then robot 1 can no longer move around", function () {
 		robot1.moveForwards();
+		robot1.moveForwards();
+
 		var positionOutput = robot1.getPosition().toString();
-		expect(positionOutput).toBe("0 1 N LOST");
+		expect(positionOutput).toBe("0 2 N LOST");
 	});
 	it("when robot 2 tries get lost in the same place it is not lost", function () {
+		robot2.moveForwards();
 		robot2.moveForwards();
 
 		var positionOutput = robot2.getPosition().toString();
@@ -128,6 +132,6 @@ describe("Given a Grid of 1x1 and two robots", function () {
 		robot2.moveForwards();
 
 		var positionOutput = robot2.getPosition().toString();
-		expect(positionOutput).toBe("0 0 N");
+		expect(positionOutput).toBe("0 1 N");
 	});
 });
