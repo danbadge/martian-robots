@@ -1,7 +1,7 @@
 function Position() {
 	this.x = 0;
 	this.y = 0;
-	this.orientation = "N"
+	this.orientation = "N";
 	this.lost = false;
 
 	this.toString = function () {
@@ -39,6 +39,6 @@ function Position() {
 		}
 		return false;
 	};
-};
+}
 
 module.exports = Position;
