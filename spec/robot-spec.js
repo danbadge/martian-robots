@@ -82,8 +82,8 @@ describe("Given a new Robot is created", function () {
 	});
 });
 
-describe("Given a Robot has a position of 3,2 East", function () {
-	var grid = new Grid()
+describe("Given a Grid of 4x4 and a Robot with a position of 3,2 East", function () {
+	var grid = new Grid(4, 4)
 	var robot = new Robot(grid);
 	robot.setPosition("3 2 E");
 	it("then it is facing East", function() {
@@ -103,19 +103,17 @@ describe("Given a Grid of 1x1 and two robots", function () {
 
 	it("when robot 1 falls of the grid it is lost", function () {
 		robot1.moveForwards();
-		robot1.moveForwards();
 
 		var positionOutput = robot1.getPosition().toString();
 		expect(robot1.isLost()).toBeTruthy();
-		expect(positionOutput).toBe("0 2 N LOST");
+		expect(positionOutput).toBe("0 1 N LOST");
 	});
 	it("then robot 1 can no longer move around", function () {
 		robot1.moveForwards();
 		var positionOutput = robot1.getPosition().toString();
-		expect(positionOutput).toBe("0 2 N LOST");
+		expect(positionOutput).toBe("0 1 N LOST");
 	});
 	it("when robot 2 tries get lost in the same place it is not lost", function () {
-		robot2.moveForwards();
 		robot2.moveForwards();
 
 		var positionOutput = robot2.getPosition().toString();
@@ -125,6 +123,43 @@ describe("Given a Grid of 1x1 and two robots", function () {
 		robot2.moveForwards();
 
 		var positionOutput = robot2.getPosition().toString();
-		expect(positionOutput).toBe("0 1 N");
+		expect(positionOutput).toBe("0 0 N");
 	});
+});
+
+describe("Given a Grid of 2x2", function () {
+	var grid = new Grid(2, 2);
+
+	it("when a robot is facing east and moves forward twice then it gets lost", function () {
+		var robot = new Robot(grid);
+		robot.turnRight();
+
+		robot.moveForwards();
+		robot.moveForwards();
+
+		expect(robot.isLost()).toBeTruthy();
+		var positionOutput = robot.getPosition().toString();
+		expect(positionOutput).toBe("2 0 E LOST");
+	});
+	it("when a robot is facing south and moves forward once then it gets lost", function () {
+		var robot = new Robot(grid);
+		robot.turnRight();
+		robot.turnRight();
+
+		robot.moveForwards();
+
+		expect(robot.isLost()).toBeTruthy();
+		var positionOutput = robot.getPosition().toString();
+		expect(positionOutput).toBe("0 -1 S LOST");
+	});
+	it("when a robot is facing west and moves forward once then it gets lost", function () {
+		var robot = new Robot(grid);
+		robot.turnLeft();
+
+		robot.moveForwards();
+
+		expect(robot.isLost()).toBeTruthy();
+		var positionOutput = robot.getPosition().toString();
+		expect(positionOutput).toBe("-1 0 W LOST");
+	});	
 });

@@ -41,14 +41,10 @@ function Robot(grid) {
 			position.x -= 1;
 		}
 
-		if (position.y > grid.height) {
+		if (position.isOffThe(grid)) {
 			position.lost = true;
 			grid.addForbidden(startPosition);
 		} 
-		else if (position.x > grid.length) {
-			position.lost = true;
-			grid.addForbidden(startPosition);
-		}
 	};
 
 	this.turnLeft = function() {
