@@ -13,8 +13,8 @@ function Robot(grid) {
 
 	this.setPosition = function (command) {
 		command = command.split(" ");
-		position.x = parseInt(command[0]);
-		position.y = parseInt(command[1]);
+		position.x = command[0];
+		position.y = command[1];
 		position.orientation = command[2];
 	};
 
@@ -45,16 +45,16 @@ function Robot(grid) {
 			return;
 
 		if (position.orientation == north) {
-			position.y += 1;
+			position.y++;
 		} 
 		else if (position.orientation == east) {
-			position.x += 1;
+			position.x++;
 		}
 		else if (position.orientation == south) {
-			position.y -= 1;
+			position.y--;
 		}
 		else if (position.orientation == west) {
-			position.x -= 1;
+			position.x--;
 		}
 
 		if (position.isOffThe(grid)) {
