@@ -1,4 +1,4 @@
-function Position(x, y, orientation) {
+function Position() {
 	this.x = 0;
 	this.y = 0;
 	this.orientation = "N"
@@ -9,10 +9,11 @@ function Position(x, y, orientation) {
 	};
 
 	this.isOffThe = function (grid) {
-		return (this.x > grid.length 
-			|| this.y > grid.height
-			|| this.y < 0
-			|| this.x < 0);
+		this.lost = (this.x > grid.length 
+					|| this.y > grid.height
+					|| this.y < 0
+					|| this.x < 0);
+		return this.lost;
 	}
 };
 
