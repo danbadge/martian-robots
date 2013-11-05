@@ -18,22 +18,22 @@ describe("Given a new Robot is created", function () {
 		expect(robot.isLost()).toBeFalsy();
 	});
 	it("then it can turn left to face West", function() {
-		robot.turnLeft()
+		robot.turnLeft();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("W");
 	});
 	it("then it can turn left again to face South", function() {
-		robot.turnLeft()
+		robot.turnLeft();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("S");
 	});
 	it("then it can turn left again to face East", function() {
-		robot.turnLeft()
+		robot.turnLeft();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("E");
 	});	
 	it("then it can turn left again to face North", function() {
-		robot.turnLeft()
+		robot.turnLeft();
 		var orientation = robot.getPosition().orientation;
 		expect(orientation).toBe("N");
 	});		
@@ -88,7 +88,7 @@ describe("Given a new Robot is created", function () {
 });
 
 describe("Given a Grid of 4x4 and a Robot with a position of 3,2 East", function () {
-	var grid = new Grid(3, 3)
+	var grid = new Grid(3, 3);
 	var robot = new Robot(grid);
 	robot.setPosition("3 2 E");
 	it("then it is facing East", function() {
