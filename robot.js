@@ -1,11 +1,5 @@
 var Position = require("./position.js");
 
-var north = "N";
-var east = "E";
-var south = "S";
-var west = "W";
-var forbidden = [];
-
 function Robot(grid) {
 	var position = new Position();
 	var right = { "N":"E", "E":"S", "S":"W", "W":"N" };
