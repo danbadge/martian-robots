@@ -8,17 +8,6 @@ function Position() {
 		return this.x + " " + this.y + " " + this.orientation + (this.lost ? " LOST" : "");
 	};
 
-	this.moveForwards = function () {
-		if (this.orientation == "N")
-			this.y++; 
-		if (this.orientation == "E")
-			this.x++;
-		if (this.orientation == "S")
-			this.y--;
-		if (this.orientation == "W")
-			this.x--;
-	};
-
 	this.isOffThe = function (grid) {
 		if (this.x > grid.length 
 			|| this.y > grid.height
