@@ -5,11 +5,11 @@ function Robot(grid) {
 	var right = { "N":"E", "E":"S", "S":"W", "W":"N" };
 	var left = { "N":"W", "W":"S", "S":"E", "E":"N" };
 
-	this.setPosition = function (command) {
-		command = command.split(" ");
-		position.x = command[0];
-		position.y = command[1];
-		position.orientation = command[2];
+	this.setPosition = function (startPosition) {
+		startPosition = startPosition.split(" ");
+		position.x = startPosition[0];
+		position.y = startPosition[1];
+		position.orientation = startPosition[2];
 	};
 
 	this.getPosition = function () {
