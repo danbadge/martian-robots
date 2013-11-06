@@ -13,7 +13,7 @@ function Grid(length, height) {
 		forbidden.push(position);
 	};
 
-	this.isForbidden = function (position) {
+	this.hasForbidden = function (position) {
 		return forbidden.indexOf(position) > -1;
 	};
 }

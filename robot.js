@@ -33,15 +33,22 @@ function Robot(grid) {
 	};
 
 	this.moveForwards = function () {
-		var startPosition = position.toString();
+		var startingPosition = position.toString();
 
-		if (this.isLost() || grid.isForbidden(startPosition))
+		if (this.isLost() || grid.hasForbidden(startingPosition))
 			return;
 
-		position.moveForwards();
-
+		if (position.orientation == "N")
+			position.y++; 
+		if (position.orientation == "E")
+			position.x++;
+		if (position.orientation == "S")
+			position.y--;
+		if (position.orientation == "W")
+			position.x--;
+		
 		if (position.isOffThe(grid))
-			grid.addForbidden(startPosition);
+			grid.addForbidden(startingPosition);
 	};
 
 	this.turnLeft = function() {
