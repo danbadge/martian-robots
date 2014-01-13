@@ -1,0 +1,6 @@
+{
+	"scripts": {
+		"test" : "node_modules\\.bin\\jasmine-node spec --verbose",
+		"watch" : "node_modules\\.bin\\jasmine-node spec --verbose --autotest --watch ."
+	}
+}
