@@ -13,8 +13,8 @@ Finally to see the test case in action run:
 > node mars.js
 
 
-The Problem
------------
+#### The Problem
+
 The surface of Mars can be modelled by a rectangular grid around which robots are able to
 move according to instructions provided from Earth.  You are to write a program that
 determines each sequence of robot positions and reports the final position of the robot.
@@ -39,8 +39,7 @@ the last grid position the robot occupied before disappearing over the edge. An 
 move “off” the world from a grid point from which a robot has been previously lost is simply
 ignored by the current robot.
 
-The Input
----------
+#### The Input
 
 The first line of input is the upper-right coordinates of the rectangular world, the lower-left
 coordinates are assumed to be 0, 0.
@@ -56,8 +55,7 @@ next robot begins execution.
 The maximum value for any coordinate is 50.
 All instruction strings will be less than 100 characters in length.
 
-The Output
-----------
+#### The Output
 
 For each robot position/instruction in the input, the output should indicate the final grid
 position and orientation of the robot. If a robot falls off the edge of the grid the word “LOST”
