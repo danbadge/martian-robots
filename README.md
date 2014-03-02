@@ -61,7 +61,7 @@ For each robot position/instruction in the input, the output should indicate the
 position and orientation of the robot. If a robot falls off the edge of the grid the word “LOST”
 should be printed after the position and orientation.
 
-Sample Input
+Sample Input <br />
 5 3 <br />
 1 1 E <br />
 RFRFRFRF <br />
